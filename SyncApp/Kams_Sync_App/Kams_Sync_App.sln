@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kams_Sync_App", "Kams_Sync_App.csproj", "{B73A5638-6EDF-4ED7-8DE3-BC2731AC84BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "..\DataLibrary\DataLibrary.csproj", "{28640EF5-0FC1-44D6-81CA-CF081B255393}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B73A5638-6EDF-4ED7-8DE3-BC2731AC84BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B73A5638-6EDF-4ED7-8DE3-BC2731AC84BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B73A5638-6EDF-4ED7-8DE3-BC2731AC84BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B73A5638-6EDF-4ED7-8DE3-BC2731AC84BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28640EF5-0FC1-44D6-81CA-CF081B255393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28640EF5-0FC1-44D6-81CA-CF081B255393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28640EF5-0FC1-44D6-81CA-CF081B255393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28640EF5-0FC1-44D6-81CA-CF081B255393}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E40C2D62-B639-40CE-A434-4262D2862D51}
+	EndGlobalSection
+EndGlobal

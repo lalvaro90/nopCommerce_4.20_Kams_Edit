@@ -1143,7 +1143,8 @@ namespace Nop.Web.Controllers
             or.Customer = _workContext.CurrentCustomer;
             or.OrderGuid = Guid.NewGuid();
             or.CustomOrderNumber = $"cred-{date.Day}{date.Month}{date.Year}-{date.Hour}{date.Minute}{date.Second}{date.Millisecond}";
-
+            or.CreatedOnUtc = DateTime.UtcNow;
+            
             var cartItems = new List<ShoppingCartItem>();
                 cartItems.AddRange(_workContext.CurrentCustomer.ShoppingCartItems);
 
@@ -1158,6 +1159,7 @@ namespace Nop.Web.Controllers
                     Quantity = item.Quantity,
                     AttributeDescription = item.Product.Name
                 });
+                or.OrderTotal += prod.Price * item.Quantity;
             }
             _orderService.InsertOrder(or);
             foreach (var it in cartItems)

@@ -2300,32 +2300,36 @@ namespace Nop.Web.Areas.Admin.Controllers
         #region Show Price
 
 
-        [HttpPost, ActionName("List")]
+        [HttpPost, ActionName("UsePrice1")]
         [FormValueRequired("use-price-1")]
-        public virtual void UsePrice1()
+        public virtual IActionResult UsePrice1()
         {
             _productService.UpdateProductVisiblePrice("Price1");
+            return Ok(null);
         }
 
-        [HttpPost, ActionName("List")]
+        [HttpPost, ActionName("UsePrice2")]
         [FormValueRequired("use-price-2")]
-        public virtual void UsePrice2()
+        public virtual IActionResult UsePrice2()
         {
             _productService.UpdateProductVisiblePrice("Price2");
+            return Ok(null);
         }
 
-        [HttpPost, ActionName("List")]
+        [HttpPost, ActionName("UsePrice3")]
         [FormValueRequired("use-price-3")]
-        public virtual void UsePrice3()
+        public virtual IActionResult UsePrice3()
         {
             _productService.UpdateProductVisiblePrice("Price3");
+            return Ok(null);
         }
 
-        [HttpPost, ActionName("List")]
+        [HttpPost, ActionName("UsePrice4")]
         [FormValueRequired("use-price-4")]
-        public virtual void UsePrice4()
+        public virtual IActionResult UsePrice4()
         {
             _productService.UpdateProductVisiblePrice("Price4");
+            return Ok(null);
         }
 
         #endregion

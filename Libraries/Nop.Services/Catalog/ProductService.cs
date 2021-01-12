@@ -515,34 +515,30 @@ namespace Nop.Services.Catalog
         public virtual void UpdateProductVisiblePrice(string FieldName)
         {
 
-            var query = from p in _productRepository.Table
-                        where !p.Deleted && p.Published
-                        select p;
-            var products = query.ToList();
 
-            foreach (var p in products)
-            {
+            var products = _productRepository.Table.Where(x => x.Published && !x.Deleted).ToList();
+                        
                 switch (FieldName)
                 {
                     case "Price1":
-                        p.Price = p.Price1;
+                    products.ForEach(x => x.Price = x.Price1);
                         break;
                     case "Price2":
-                        p.Price = p.Price2;
-                        break;
+                    products.ForEach(x => x.Price = x.Price2);
+                    break;
                     case "Price3":
-                        p.Price = p.Price3;
-                        break;
+                    products.ForEach(x => x.Price = x.Price3);
+                    break;
                     case "Price4":
-                        p.Price = p.Price4;
-                        break;
+                    products.ForEach(x => x.Price = x.Price4);
+                    break;
                 }
                 //update
-                _productRepository.Update(p);
+                _productRepository.Update(products);
 
                 //event notification
-                _eventPublisher.EntityUpdated(p);
-            }
+                //_eventPublisher.EntityUpdated(products);
+            
 
             //cache
             _cacheManager.RemoveByPrefix(NopCatalogDefaults.ProductsPrefixCacheKey);

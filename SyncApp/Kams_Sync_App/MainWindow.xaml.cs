@@ -8,14 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace Kams_Sync_App
 {
@@ -33,33 +26,42 @@ namespace Kams_Sync_App
 
         public MainWindow()
         {
-            InitializeComponent();
-            var ct = SynchronizationContext.Current;
-            OrdersTh = new Thread((object value) =>
+            try
             {
-                var ctx = (SynchronizationContext)value;
-                while (keepExecutionOrders)
+                InitializeComponent();
+                var ct = SynchronizationContext.Current;
+                OrdersTh = new Thread((object value) =>
                 {
-                    Thread.Sleep(orderDelay);
-                    Thread sth = new Thread(InitSyncOrders);
-                    ctx.Send(clearOrderLogText, string.Empty);
-                    sth.Start(ctx);
-                }
-            });
-            OrdersTh.Start(ct);
+                    var ctx = (SynchronizationContext)value;
+                    while (keepExecutionOrders)
+                    {
+                        Thread.Sleep(orderDelay);
+                        Thread sth = new Thread(InitSyncOrders);
+                        ctx.Send(clearOrderLogText, string.Empty);
+                        sth.Start(ctx);
+                    }
+                });
+                OrdersTh.Start(ct);
 
-            ProductsTh = new Thread((object value) =>
-            {
-                var ctx = (SynchronizationContext)value;
-                while (keepExecutionProducts)
+                ProductsTh = new Thread((object value) =>
                 {
-                    Thread.Sleep(ProductDelay);
-                    Thread sth = new Thread(InitSyncProducts);
-                    ctx.Send(clearProductLogText, string.Empty);
-                    sth.Start(ctx);
-                }
-            });
-            ProductsTh.Start(ct);
+                    var ctx = (SynchronizationContext)value;
+                    while (keepExecutionProducts)
+                    {
+                        Thread.Sleep(ProductDelay);
+                        Thread sth = new Thread(InitSyncProducts);
+                        ctx.Send(clearProductLogText, string.Empty);
+                        sth.Start(ctx);
+                    }
+                });
+                ProductsTh.Start(ct);
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry(this.ToString(), ex.ToString());
+                throw;
+            }
+            
 
 
         }
@@ -309,10 +311,11 @@ namespace Kams_Sync_App
                     }
                     catch (Exception ex)
                     {
+                        EventLog.WriteEntry(this.ToString(), ex.ToString());
                         //if (num2 < 5)
                         //{
-                            //ctxx.Send(writeToProductProgress, string.Format("Error trying to insert data; Try {0} of 5", (object)(num2 + 1)));
-                            ctxx.Send(writeToProductProgress, "Error details: " + ex.Message);
+                        //ctxx.Send(writeToProductProgress, string.Format("Error trying to insert data; Try {0} of 5", (object)(num2 + 1)));
+                        ctxx.Send(writeToProductProgress, "Error details: " + ex.Message);
                             ctxx.Send(writeToProductProgress, "Error details: " + ex.StackTrace);
                         //    ++num2;
                         //}
@@ -324,7 +327,7 @@ namespace Kams_Sync_App
             }
             catch (Exception ex)
             {
-
+                EventLog.WriteEntry(this.ToString(), ex.ToString());
                 ctxx.Send(writeToProductProgress, "Error details: " + ex.Message);
                 ctxx.Send(writeToProductProgress, "Error details: " + ex.StackTrace);
             }
@@ -377,6 +380,7 @@ namespace Kams_Sync_App
                     }
                     catch (Exception ex)
                     {
+                        EventLog.WriteEntry(this.ToString(), ex.ToString());
                         ct.Send(writeToOrderProgress, $"Error al Insertar la Orden: {o.OrderGuid} - {ex.Message}");
                         //Console.WriteLine("Error " + ex.Message);
                         //Console.WriteLine("Continue with next order");
@@ -397,6 +401,7 @@ namespace Kams_Sync_App
                 sb.AppendLine("");
                 sb.AppendLine(ex.StackTrace);
                 sb.AppendLine("");
+                EventLog.WriteEntry(this.ToString(), sb.ToString());
                 ct.Send(writeToOrderProgress, $"Error en la sincronizacion: {sb.ToString()}");
             }
         }

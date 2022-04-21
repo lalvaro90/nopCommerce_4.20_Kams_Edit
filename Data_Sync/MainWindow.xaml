@@ -1,0 +1,43 @@
+﻿<Window x:Class="Data_Sync.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Data_Sync"
+        mc:Ignorable="d"
+        Title="Sincronizar Datos con Tienda Kams" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Name="Orders" Header="Ordenes">
+                <Canvas>
+                    <Button Canvas.Left="10" Name="btn_Orders" Canvas.Top="10" Click="btn_Orders_Click">Forzar Sincronizacion de Ordenes</Button>
+                    <ProgressBar Name="pgr_Orders" Width="766" Height="19" Canvas.Left="10" Canvas.Top="35"></ProgressBar>
+                    <Label Canvas.Left="10" Canvas.Top="59">Detalles</Label>
+                    <ScrollViewer Name="svg_Orders" Canvas.Left="10" Canvas.Top="90" Height="306" Width="766">
+                        <TextBlock Name="txt_Orders" MinHeight="306" Width="749"></TextBlock>
+                    </ScrollViewer>
+                </Canvas>
+            </TabItem>
+            <TabItem Name="Products" Header="Productos">
+                <Canvas>
+                    <Button Canvas.Left="10" Name="btn_Products" Canvas.Top="10" Click="btn_Products_Click">Forzar Sincronizacion de Productos</Button>
+                    <ProgressBar Name="pgr_Products" Width="766" Height="19" Canvas.Left="10" Canvas.Top="35"></ProgressBar>
+                    <Label Canvas.Left="10" Canvas.Top="59">Detalles</Label>
+                    <ScrollViewer Name="svg_Products" Canvas.Left="10" Canvas.Top="90" Height="306" Width="766">
+                        <TextBlock Name="txt_Products" MinHeight="306" Width="766"></TextBlock>
+                    </ScrollViewer>
+                </Canvas>
+            </TabItem>
+            <TabItem Name="Inventory" Header="Inventario">
+                <Canvas>
+                    <Button Canvas.Left="10" Name="btn_Inventory" Canvas.Top="10" Click="btn_Inventory_Click">Forzar Sincronizacion de Inventario</Button>
+                    <ProgressBar Name="pgr_Inventory" Width="766" Height="19" Canvas.Left="10" Canvas.Top="35"></ProgressBar>
+                    <Label Canvas.Left="10" Canvas.Top="59">Detalles</Label>
+                    <ScrollViewer Name="svg_Inventory" Canvas.Left="10" Canvas.Top="90" Height="306" Width="766">
+                        <TextBlock Name="txt_Inventory" MinHeight="306" Width="766"></TextBlock>
+                    </ScrollViewer>
+                </Canvas>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

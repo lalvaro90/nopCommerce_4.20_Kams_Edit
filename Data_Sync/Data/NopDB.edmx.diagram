@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e93297983d546b5a972ec5f6f413945" Name="Diagram1">
+        <EntityTypeShape EntityType="kams_nopcModel.AclRecord" Width="1.5" PointX="12" PointY="74.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ActivityLog" Width="1.5" PointX="14.75" PointY="75.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ActivityLogType" Width="1.5" PointX="12.5" PointY="84.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Address" Width="1.5" PointX="5.25" PointY="72.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.AddressAttribute" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.AddressAttributeValue" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Affiliate" Width="1.5" PointX="7.5" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.BackInStockSubscription" Width="1.5" PointX="12.75" PointY="71.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.BlogComment" Width="1.5" PointX="14.75" PointY="79.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.BlogPost" Width="1.5" PointX="12.5" PointY="87.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Campaign" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Category" Width="1.5" PointX="6" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.CategoryTemplate" Width="1.5" PointX="5.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.CheckoutAttribute" Width="1.5" PointX="12.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.CheckoutAttributeValue" Width="1.5" PointX="15" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Country" Width="1.5" PointX="0.75" PointY="55.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.CrossSellProduct" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Currency" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Customer" Width="1.5" PointX="7.5" PointY="71.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.CustomerAttribute" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.CustomerAttributeValue" Width="1.5" PointX="10" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.CustomerPassword" Width="1.5" PointX="9.75" PointY="71.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.CustomerRole" Width="1.5" PointX="9.75" PointY="75.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.DeliveryDate" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Discount" Width="1.5" PointX="8.25" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.DiscountRequirement" Width="1.5" PointX="10.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.DiscountUsageHistory" Width="1.5" PointX="14.25" PointY="102.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Download" Width="1.5" PointX="14.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.EmailAccount" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ExternalAuthenticationRecord" Width="1.5" PointX="9.75" PointY="80.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Forums_Forum" Width="1.5" PointX="7.5" PointY="66.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Forums_Group" Width="1.5" PointX="5.25" PointY="67.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Forums_Post" Width="1.5" PointX="15.75" PointY="71.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Forums_PostVote" Width="1.5" PointX="18" PointY="71.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Forums_PrivateMessage" Width="1.5" PointX="9.75" PointY="87.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Forums_Subscription" Width="1.5" PointX="9.75" PointY="91.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Forums_Topic" Width="1.5" PointX="9.75" PointY="66.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.GdprConsent" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.GdprLog" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.GenericAttribute" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.GiftCard" Width="1.5" PointX="19.5" PointY="97.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.GiftCardUsageHistory" Width="1.5" PointX="17.25" PointY="103.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Language" Width="1.5" PointX="8.25" PointY="61.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.LocaleStringResource" Width="1.5" PointX="10.5" PointY="112.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.LocalizedProperty" Width="1.5" PointX="10.5" PointY="115.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Log" Width="1.5" PointX="9.75" PointY="99.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Manufacturer" Width="1.5" PointX="10.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ManufacturerTemplate" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.MeasureDimension" Width="1.5" PointX="4.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.MeasureWeight" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.MessageTemplate" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.News" Width="1.5" PointX="10.5" PointY="61.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.NewsComment" Width="1.5" PointX="12.75" PointY="67.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.NewsLetterSubscription" Width="1.5" PointX="16.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Order" Width="1.5" PointX="12" PointY="97.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.OrderItem" Width="1.5" PointX="17.25" PointY="97" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.OrderNote" Width="1.5" PointX="14.25" PointY="105.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.PermissionRecord" Width="1.5" PointX="12" PointY="77.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Picture" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.PictureBinary" Width="1.5" PointX="12.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Poll" Width="1.5" PointX="13.25" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.PollAnswer" Width="1.5" PointX="15.5" PointY="62.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.PollVotingRecord" Width="1.5" PointX="17.75" PointY="75.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.PredefinedProductAttributeValue" Width="1.5" PointX="15.75" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Product" Width="1.5" PointX="10.5" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Product_Category_Mapping" Width="1.5" PointX="15.75" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Product_Manufacturer_Mapping" Width="1.5" PointX="12.75" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Product_Picture_Mapping" Width="1.5" PointX="12.75" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Product_ProductAttribute_Mapping" Width="1.5" PointX="15.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Product_SpecificationAttribute_Mapping" Width="1.5" PointX="12.75" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductAttribute" Width="1.5" PointX="13.5" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductAttributeCombination" Width="1.5" PointX="12.75" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductAttributeValue" Width="1.5" PointX="18" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductAvailabilityRange" Width="1.5" PointX="16.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductReview" Width="1.5" PointX="17.75" PointY="79.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductReview_ReviewType_Mapping" Width="1.5" PointX="20" PointY="80.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductReviewHelpfulness" Width="1.5" PointX="20" PointY="83.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductTag" Width="1.5" PointX="12.75" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductTemplate" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ProductWarehouseInventory" Width="1.5" PointX="12.75" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.QueuedEmail" Width="1.5" PointX="5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.RecurringPayment" Width="1.5" PointX="14.25" PointY="115" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.RecurringPaymentHistory" Width="1.5" PointX="16.5" PointY="115.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.RelatedProduct" Width="1.5" PointX="12.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ReturnRequest" Width="1.5" PointX="9.75" PointY="130" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ReturnRequestAction" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ReturnRequestReason" Width="1.5" PointX="18.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ReviewType" Width="1.5" PointX="17.75" PointY="85.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.RewardPointsHistory" Width="1.5" PointX="9.75" PointY="134.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ScheduleTask" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.SearchTerm" Width="1.5" PointX="18.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Setting" Width="1.5" PointX="14.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Shipment" Width="1.5" PointX="14.25" PointY="119.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ShipmentItem" Width="1.5" PointX="16.5" PointY="119.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ShippingByWeightByTotalRecord" Width="1.5" PointX="18.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ShippingMethod" Width="1.5" PointX="3" PointY="89.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.ShoppingCartItem" Width="1.5" PointX="14.75" PointY="83.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.SpecificationAttribute" Width="1.5" PointX="8.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.SpecificationAttributeOption" Width="1.5" PointX="10.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.StateProvince" Width="1.5" PointX="3" PointY="92.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.StockQuantityHistory" Width="1.5" PointX="12.75" PointY="58.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Store" Width="1.5" PointX="10.5" PointY="56.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.StoreMapping" Width="1.5" PointX="12.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.StorePickupPoint" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.sysdiagram" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.TaxCategory" Width="1.5" PointX="2.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.TaxRate" Width="1.5" PointX="4.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.TaxTransactionLog" Width="1.5" PointX="6.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.TierPrice" Width="1.5" PointX="12" PointY="80.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Topic" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.TopicTemplate" Width="1.5" PointX="20.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.UrlRecord" Width="1.5" PointX="20.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Vendor" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.VendorAttribute" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.VendorAttributeValue" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.VendorNote" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.Warehouse" Width="1.5" PointX="10.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.SS_ES_EntitySetting" Width="1.5" PointX="20.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.SS_JC_JCarousel" Width="1.5" PointX="20.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.SS_MAP_EntityMapping" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kams_nopcModel.SS_MAP_EntityWidgetMapping" Width="1.5" PointX="12.75" PointY="21.75" IsExpanded="true" />
+        <AssociationConnector Association="kams_nopcModel.FK_AclRecord_CustomerRole_CustomerRoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ActivityLog_ActivityLogType_ActivityLogTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ActivityLog_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Address_Country_CountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Address_StateProvince_StateProvinceId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Affiliate_Address_AddressId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Customer_Address_BillingAddress_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Customer_Address_ShippingAddress_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Order_Address_BillingAddressId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Order_Address_PickupAddressId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Order_Address_ShippingAddressId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_AddressAttributeValue_AddressAttribute_AddressAttributeId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_BackInStockSubscription_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_BackInStockSubscription_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_BlogComment_BlogPost_BlogPostId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_BlogComment_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_BlogComment_Store_StoreId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_BlogPost_Language_LanguageId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_Category_Mapping_Category_CategoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_CheckoutAttributeValue_CheckoutAttribute_CheckoutAttributeId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_StateProvince_Country_CountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_CustomerPassword_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ExternalAuthenticationRecord_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Forums_Post_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Forums_PrivateMessage_Customer_FromCustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Forums_PrivateMessage_Customer_ToCustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Forums_Subscription_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Forums_Topic_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Log_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_NewsComment_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Order_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_PollVotingRecord_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductReview_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ReturnRequest_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_RewardPointsHistory_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ShoppingCartItem_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_CustomerAttributeValue_CustomerAttribute_CustomerAttributeId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_TierPrice_CustomerRole_CustomerRoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_DiscountRequirement_Discount_DiscountId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_DiscountUsageHistory_Discount_DiscountId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_DiscountRequirement_DiscountRequirement_ParentId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_DiscountUsageHistory_Order_OrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_QueuedEmail_EmailAccount_EmailAccountId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Forums_Forum_Forums_Group_ForumGroupId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Forums_Topic_Forums_Forum_ForumId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Forums_Post_Forums_Topic_TopicId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Forums_PostVote_Forums_Post_ForumPostId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_GiftCard_OrderItem_PurchasedWithOrderItemId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_GiftCardUsageHistory_GiftCard_GiftCardId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_GiftCardUsageHistory_Order_UsedWithOrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_LocaleStringResource_Language_LanguageId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_LocalizedProperty_Language_LanguageId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_News_Language_LanguageId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Poll_Language_LanguageId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_Manufacturer_Mapping_Manufacturer_ManufacturerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_NewsComment_News_NewsItemId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_NewsComment_Store_StoreId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Order_RewardPointsHistory_RewardPointsHistoryEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_OrderItem_Order_OrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_OrderNote_Order_OrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_RecurringPayment_Order_InitialOrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Shipment_Order_OrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_OrderItem_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_PictureBinary_Picture_PictureId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_Picture_Mapping_Picture_PictureId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_PollAnswer_Poll_PollId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_PollVotingRecord_PollAnswer_PollAnswerId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_PredefinedProductAttributeValue_ProductAttribute_ProductAttributeId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_Category_Mapping_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_Manufacturer_Mapping_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_Picture_Mapping_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_ProductAttribute_Mapping_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_SpecificationAttribute_Mapping_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductAttributeCombination_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductReview_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductWarehouseInventory_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ShoppingCartItem_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_StockQuantityHistory_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_TierPrice_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_ProductAttribute_Mapping_ProductAttribute_ProductAttributeId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductAttributeValue_Product_ProductAttribute_Mapping_ProductAttributeMappingId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_Product_SpecificationAttribute_Mapping_SpecificationAttributeOption_SpecificationAttributeOptionId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductReview_ReviewType_Mapping_ProductReview_ProductReviewId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductReview_Store_StoreId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductReviewHelpfulness_ProductReview_ProductReviewId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductReview_ReviewType_Mapping_ReviewType_ReviewTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ProductWarehouseInventory_Warehouse_WarehouseId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_RecurringPaymentHistory_RecurringPayment_RecurringPaymentId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_ShipmentItem_Shipment_ShipmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_SpecificationAttributeOption_SpecificationAttribute_SpecificationAttributeId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_StoreMapping_Store_StoreId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_VendorNote_Vendor_VendorId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.FK_VendorAttributeValue_VendorAttribute_VendorAttributeId" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.Customer_CustomerRole_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.CustomerAddresses" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.Discount_AppliedToCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.Discount_AppliedToManufacturers" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.Discount_AppliedToProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.PermissionRecord_Role_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.Product_ProductTag_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="kams_nopcModel.ShippingMethodRestrictions" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

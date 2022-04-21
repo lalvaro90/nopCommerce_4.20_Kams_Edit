@@ -1,0 +1,5 @@
+﻿{
+  "DataProvider": "sqlserver",
+  "DataConnectionString": "Data Source=wdb2.my-hosting-panel.com;Initial Catalog=kamscrin_npcommerce;Integrated Security=False;Persist Security Info=False;User ID=kamscrin_admin;Password=P@$$w0RD",
+  "RawDataSettings": {}
+}

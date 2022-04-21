@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BA733A7-81B8-411D-B264-294D167F2BB8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Data_Sync</RootNamespace>
+    <AssemblyName>Data_Sync</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Publish\Kams\DataSync\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7D350EFA22DC28AB3C86806C343665F6484E1CA9</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Data_Sync_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\AclRecord.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ActivityLog.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ActivityLogType.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Address.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AddressAttribute.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AddressAttributeValue.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Affiliate.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BackInStockSubscription.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BlogComment.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BlogPost.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Campaign.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Category.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CategoryTemplate.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CheckoutAttribute.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CheckoutAttributeValue.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Country.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CrossSellProduct.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Currency.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Customer.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CustomerAttribute.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CustomerAttributeValue.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CustomerPassword.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CustomerRole.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DeliveryDate.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Discount.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DiscountRequirement.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DiscountUsageHistory.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Download.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EmailAccount.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ExternalAuthenticationRecord.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forums_Forum.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forums_Group.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forums_Post.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forums_PostVote.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forums_PrivateMessage.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forums_Subscription.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forums_Topic.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GdprConsent.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GdprLog.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GenericAttribute.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GiftCard.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GiftCardUsageHistory.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Group.cs" />
+    <Compile Include="Data\Language.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\LocaleStringResource.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\LocalizedProperty.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Log.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Manufacturer.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ManufacturerTemplate.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MeasureDimension.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MeasureWeight.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MessageTemplate.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\News.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NewsComment.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NewsLetterSubscription.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NopDB.Context.cs">
+      <DependentUpon>NopDB.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Data\NopDB.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Data\NopDB.Designer.cs">
+      <DependentUpon>NopDB.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Data\Order.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OrderItem.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OrderNote.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PermissionRecord.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Picture.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PictureBinary.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Poll.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PollAnswer.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PollVotingRecord.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PredefinedProductAttributeValue.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Product.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductAttribute.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductAttributeCombination.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductAttributeValue.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductAvailabilityRange.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductReview.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductReviewHelpfulness.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductReview_ReviewType_Mapping.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductTag.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductTemplate.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductWarehouseInventory.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Product_Category_Mapping.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Product_Manufacturer_Mapping.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Product_Picture_Mapping.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Product_ProductAttribute_Mapping.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Product_SpecificationAttribute_Mapping.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\QueuedEmail.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RecurringPayment.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RecurringPaymentHistory.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RelatedProduct.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ReturnRequest.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ReturnRequestAction.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ReturnRequestReason.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ReviewType.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RewardPointsHistory.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ScheduleTask.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SearchTerm.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Setting.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Shipment.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ShipmentItem.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ShippingByWeightByTotalRecord.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ShippingMethod.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ShoppingCartItem.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SpecificationAttribute.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SpecificationAttributeOption.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SQLHelper.cs" />
+    <Compile Include="Data\SS_ES_EntitySetting.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SS_JC_JCarousel.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SS_MAP_EntityMapping.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SS_MAP_EntityWidgetMapping.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StateProvince.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StockQuantityHistory.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Store.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StoreMapping.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StorePickupPoint.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sysdiagram.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TaxCategory.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TaxRate.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TaxTransactionLog.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TierPrice.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Topic.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TopicTemplate.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UrlRecord.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Vendor.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\VendorAttribute.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\VendorAttributeValue.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\VendorNote.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Warehouse.cs">
+      <DependentUpon>NopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTOs\InventoryMoves.cs" />
+    <Compile Include="DTOs\PCGRAF_Product.cs" />
+    <Compile Include="LogHelper.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Data\NopDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NopDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\NopDB.edmx.diagram">
+      <DependentUpon>NopDB.edmx</DependentUpon>
+    </None>
+    <None Include="Data_Sync_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\NopDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NopDB.edmx</DependentUpon>
+      <LastGenOutput>NopDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\NopDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NopDB.edmx</DependentUpon>
+      <LastGenOutput>NopDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

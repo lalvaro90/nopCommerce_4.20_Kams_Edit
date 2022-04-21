@@ -12,8 +12,7 @@ namespace DataLibrary
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Linq;
-
+    
     public partial class kamscrin_npcommerceEntities : DbContext
     {
         public kamscrin_npcommerceEntities()
@@ -32,12 +31,6 @@ namespace DataLibrary
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<AddressAttribute> AddressAttributes { get; set; }
         public virtual DbSet<AddressAttributeValue> AddressAttributeValues { get; set; }
-
-        public IQueryable<GenericAttribute> Where(Func<object, bool> p)
-        {
-            throw new NotImplementedException();
-        }
-
         public virtual DbSet<Affiliate> Affiliates { get; set; }
         public virtual DbSet<BackInStockSubscription> BackInStockSubscriptions { get; set; }
         public virtual DbSet<BlogComment> BlogComments { get; set; }

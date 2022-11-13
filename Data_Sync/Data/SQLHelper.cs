@@ -32,7 +32,37 @@ namespace Data_Sync.Data
         {
             SqlConnection connection = new SqlConnection("data source=10.10.10.100; initial catalog = siawin0; persist security info=True; Integrated Security = SSPI;");
             List<Product> productList = new List<Product>();
-            SqlCommand sqlCommand = new SqlCommand("With _sku as (select SKU from [KAMSINDUSTRIAL.COM].[kams_nop].[dbo].[Product] p \r\n                                where p.Id in (SELECT distinct [ProductId] FROM [KAMSINDUSTRIAL.COM].[kams_nop].[dbo].[Product_Picture_Mapping])),\r\n                                prices as (select ii10.sCodigo_Articulo as scodigo_producto, i04.sDescripcion_Inventario as sdescripcion_inventario, i04.sgrupo, ((i04.cPrecio_Publico * 0.13) + i04.cPrecio_Publico) as P1,\r\n                                (select i10.cPrecio_Publico from IN10 as i10 where i10.sCodigo_Lista = '002' and i10.sCodigo_Articulo = ii10.sCodigo_Articulo) as P2,\r\n                                (select i10.cPrecio_Publico from IN10 as i10 where i10.sCodigo_Lista = '003' and i10.sCodigo_Articulo = ii10.sCodigo_Articulo) as P3, \r\n                                (select i10.cPrecio_Publico from IN10 as i10 where i10.sCodigo_Lista = '004' and i10.sCodigo_Articulo = ii10.sCodigo_Articulo) as P4 \r\n                                from IN10 as ii10 inner join IN04 as i04 on ii10.sCodigo_Articulo = i04.sCodigo_Producto where ii10.sCodigo_Articulo in (select * from _sku))\r\n                                select * from prices as p group by p.scodigo_producto,p.sdescripcion_inventario,p.sGrupo, p.P1, p.P2, p.P3, p.P4", connection);
+            SqlCommand sqlCommand = new SqlCommand($@" 
+                    With--_sku as (
+	                --select SKU from [KAMSINDUSTRIAL.COM].[kams_nop].[dbo].[Product] p 
+	                --where p.Id in (SELECT distinct [ProductId] FROM [KAMSINDUSTRIAL.COM].[kams_nop].[dbo].[Product_Picture_Mapping])
+	                --),
+	                cuantities as (
+		                select 
+		                sCodigo_Producto, 
+		                SUM(iSaldo_Mes_Anterior + iSaldo_Mes) as Saldo
+		                 from IN11
+		                 where sCodigo_Bodega = '01'
+		                 group by sCodigo_Producto
+	                ),
+                prices as (
+	                select c.Saldo as Cantidad,ii10.sCodigo_Articulo as scodigo_producto, i04.sDescripcion_Inventario as sdescripcion_inventario, i04.sgrupo, ((i04.cPrecio_Publico * 0.13) + i04.cPrecio_Publico) as P1,
+	                (select i10.cPrecio_Publico from IN10 as i10 where i10.sCodigo_Lista = '002' and i10.sCodigo_Articulo = ii10.sCodigo_Articulo) as P2,
+	                (select i10.cPrecio_Publico from IN10 as i10 where i10.sCodigo_Lista = '003' and i10.sCodigo_Articulo = ii10.sCodigo_Articulo) as P3,
+	                (select i10.cPrecio_Publico from IN10 as i10 where i10.sCodigo_Lista = '004' and i10.sCodigo_Articulo = ii10.sCodigo_Articulo) as P4 
+	                from IN10 as ii10 
+	                inner join IN04 as i04 
+		                on ii10.sCodigo_Articulo = i04.sCodigo_Producto 
+	                left join In04Nuevos IN04N
+		                on ii10.sCodigo_Articulo = IN04n.Codigo
+	                inner join cuantities c 
+		                on ii10.sCodigo_Articulo = c.sCodigo_Producto
+		               -- where ii10.sCodigo_Articulo in (select * from _sku)
+	                )
+                select * from prices as p 
+				group by p.scodigo_producto,p.sdescripcion_inventario,p.sGrupo, p.P1, p.P2, p.P3, p.P4, p.Cantidad
+				order by p.scodigo_producto
+                ", connection);
             connection.Open();
             SqlDataReader reader = sqlCommand.ExecuteReader();
             DataTable group = new DataTable();

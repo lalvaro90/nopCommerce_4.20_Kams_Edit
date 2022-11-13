@@ -29,7 +29,7 @@ namespace Data_Sync
         private bool keepExecutionOrders = true;
         private bool keepExecutionInventory = true;
         private bool keepExecutionProducts = true;
-        private bool processingInventory;
+        private bool processingInventory = false;
         private TimeSpan orderDelay = TimeSpan.FromMinutes(2.0);
         private TimeSpan inventoryDelay = TimeSpan.FromMinutes(2.0);
         private TimeSpan ProductDelay = TimeSpan.FromDays(1.0);
@@ -68,19 +68,22 @@ namespace Data_Sync
                         Thread thread = new Thread(new ParameterizedThreadStart(this.InitSyncInventoryMoves));
                         threadContext.CT.Send(new SendOrPostCallback(this.clearInventoryLogText), (object)string.Empty);
                         ThreadContext parameter3 = threadContext;
-                        thread.Start((object)parameter3);
+                        thread.Start(parameter3);
                     }
                 }
             }));
             parameter1.Moves = SQLHelper.GetInventoryMoves();
-            this.setInventoryProgressInitialValues((object)parameter1.Moves.Count);
-            this.InventoryTh.Start((object)parameter1);
+            this.setInventoryProgressInitialValues(parameter1.Moves.Count);
+            this.InventoryTh.Start(parameter1);
             this.ProductsTh = new Thread((ParameterizedThreadStart)(value =>
             {
                 SynchronizationContext synchronizationContext = (SynchronizationContext)value;
                 while (this.keepExecutionProducts)
                 {
-                    Thread.Sleep(this.ProductDelay);
+                    var date = DateTime.Now;
+                    var toNextDay = (date.AddDays(1).Date - date).TotalMilliseconds;
+                    var span = TimeSpan.FromMilliseconds(toNextDay);
+                    Thread.Sleep(span);
                     Thread thread = new Thread(new ParameterizedThreadStart(this.InitSyncProducts));
                     synchronizationContext.Send(new SendOrPostCallback(this.clearProductLogText), (object)string.Empty);
                     SynchronizationContext parameter4 = synchronizationContext;
@@ -107,13 +110,13 @@ namespace Data_Sync
 
         private void btn_Inventory_Click(object sender, RoutedEventArgs e)
         {
-            if (this.processingInventory)
-                return;
+            //if (this.processingInventory)
+            //    return;
             this.setInventoryProgressInitialValues(0);
             List<InventoryMoves> source = new List<InventoryMoves>();
             int from = 0;
             int to = 1000;
-            int num = 1000;
+            int interval = 1000;
             while (source != null)
             {
                 source = SQLHelper.GetInventoryMovesForced(from, to);
@@ -127,11 +130,13 @@ namespace Data_Sync
                     this.txt_Inventory.Text = string.Empty;
                     ThreadContext parameter = threadContext;
                     thread.Start(parameter);
-                    from += num;
-                    to += num;
+                    from += interval;
+                    to += interval;
                 }
-                else
-                    source = (List<InventoryMoves>)null;
+                else {
+                    writeToInventoryProgress("No more Items to sync");
+                    source = null;
+                }
             }
 
         }
@@ -303,13 +308,15 @@ namespace Data_Sync
                 foreach (PCGRAF_Product pcgrafProduct in products)
                 {
                     PCGRAF_Product p = pcgrafProduct;
-                    synchronizationContext.Send(new SendOrPostCallback(this.writeToProductProgress), ("Prducto " + p.SCodigo_Producto + " - P1: " + p.P1 + " - P2: " + p.P2 + " - P3: " + p.P3 + " - P4: " + p.P4));
+                    synchronizationContext.Send(new SendOrPostCallback(this.writeToProductProgress), 
+                        ($"Prducto {p.SCodigo_Producto} Stock: {p.Cantidad} - P1: {p.P1} - P2: {p.P2} - P3: {p.P3} - P4: {p.P4}"));
                     try
                     {
                         decimal result1 = 0;
                         decimal result2 = 0;
                         decimal result3 = 0;
                         decimal result4 = 0;
+                        decimal stock = 0;
                         if (p.P1 != null)
                             Decimal.TryParse(p.P1, out result1);
                         if (p.P2 != null)
@@ -318,6 +325,8 @@ namespace Data_Sync
                             Decimal.TryParse(p.P3, out result3);
                         if (p.P4 != null)
                             Decimal.TryParse(p.P4, out result4);
+                        if (p.Cantidad != null)
+                            Decimal.TryParse(p.Cantidad, out stock);
                         Category exist_cat = ((IQueryable<Category>)npcommerceEntities.Categories).FirstOrDefault<Category>((Expression<Func<Category, bool>>)(x => x.MetaDescription == p.SGrupo));
                         Product product = new Product()
                         {
@@ -331,7 +340,7 @@ namespace Data_Sync
                             Sku = p.SCodigo_Producto,
                             ProductTypeId = 5,
                             CreatedOnUtc = DateTime.UtcNow,
-                            StockQuantity = 9999,
+                            StockQuantity = decimal.ToInt32(stock),
                             VisibleIndividually = true,
                             OrderMaximumQuantity = 999,
                             OrderMinimumQuantity = 1,
@@ -348,22 +357,24 @@ namespace Data_Sync
                                     CategoryId = exist_cat.Id,
                                     ProductId = exist_prod.Id
                                 });
+                                exist_prod.StockQuantity = decimal.ToInt32(stock);
                                 npcommerceEntities.SaveChanges();
                             }
                             else if (productCategoryMapping != null && exist_prod != null)
                             {
                                 productCategoryMapping.ProductId = exist_prod.Id;
                                 productCategoryMapping.CategoryId = exist_cat.Id;
-                                exist_prod.Price1 = (Decimal.Parse(p.P1));
-                                exist_prod.Price2 = (Decimal.Parse(p.P2));
-                                exist_prod.Price3 = (Decimal.Parse(p.P3));
-                                exist_prod.Price4 = (Decimal.Parse(p.P4));
+                                exist_prod.Price1 = result1;
+                                exist_prod.Price2 = result2;
+                                exist_prod.Price3 = result3;
+                                exist_prod.Price4 = result4;
                                 exist_prod.Name = p.SDescripcion_Inventario;
                                 exist_prod.ShortDescription = p.SDescripcion_Inventario;
                                 exist_prod.MetaKeywords = p.SCodigo_Producto;
                                 exist_prod.OrderMinimumQuantity = 1;
                                 exist_prod.OrderMaximumQuantity = 999;
                                 exist_prod.ProductTypeId = 5;
+                                exist_prod.StockQuantity = decimal.ToInt32(stock);
                                 exist_prod.Published = exist_prod.Published;
                                 npcommerceEntities.SaveChanges();
                             }
@@ -390,11 +401,16 @@ namespace Data_Sync
                                 });
                                 npcommerceEntities.SaveChanges();
                             }
+
+                            exist_prod.StockQuantity = decimal.ToInt32(stock);
+                            npcommerceEntities.SaveChanges();
                         }
                         else
                         {
-                            npcommerceEntities.Products.Add(product);
+                            synchronizationContext.Send(new SendOrPostCallback(this.writeToProductProgress), $"Adding new Product to Web Store: {product.Sku}");
+                            product = npcommerceEntities.Products.Add(product);
                             npcommerceEntities.SaveChanges();
+                            synchronizationContext.Send(new SendOrPostCallback(this.writeToProductProgress), $"Adding new Product URL to Web Store: {product.Id}");
                             npcommerceEntities.UrlRecords.Add(new UrlRecord()
                             {
                                 EntityId = product.Id,
@@ -404,8 +420,8 @@ namespace Data_Sync
                             });
                             npcommerceEntities.Product_Category_Mapping.Add(new Product_Category_Mapping()
                             {
-                                CategoryId = exist_cat.Id,
-                                ProductId = product.Id
+                                Category = exist_cat,
+                                Product = product
                             });
                             npcommerceEntities.SaveChanges();
                         }
@@ -413,16 +429,18 @@ namespace Data_Sync
                     }
                     catch (Exception ex)
                     {
-                        synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), ("Error details: " + ex.Message));
-                        synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), ("Error details: " + ex.StackTrace));
+                        synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), $"Product Code: {pcgrafProduct.SCodigo_Producto} Time Stamp: {DateTime.Now.ToString()}");
+                        synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), $"Product Details: {pcgrafProduct.ToString()}");
+                        synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), $"Error details: {ex.Message}");
+                        synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), $"Error details: {ex.StackTrace}");
                     }
                 }
                 synchronizationContext.Send(new SendOrPostCallback(this.writeToProductProgress), "Prducto y Categorias Sincronizados!");
             }
             catch (Exception ex)
             {
-                synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), ("Error details: " + ex.Message));
-                synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), ("Error details: " + ex.StackTrace));
+                synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), $"Error details: {ex.Message}");
+                synchronizationContext.Send(new SendOrPostCallback(this.writeToErrorLog), $"Error details: {ex.StackTrace}");
             }
         }
 
@@ -436,24 +454,23 @@ namespace Data_Sync
                 ct = (ThreadContext)ctx;
                 mainWindow.processingInventory = true;
                 kams_nopcEntities storeEntities = new kams_nopcEntities();
-                ct.CT.Send(new SendOrPostCallback(mainWindow.writeToInventoryProgress), string.Format("Obteniendo Movimeitos de Inventario"));
+                ct.CT.Send(new SendOrPostCallback(mainWindow.writeToInventoryProgress), string.Format($"Obteniendo Movimeitos de Inventario Para {ct.Moves.First().Id} al {ct.Moves.Last().Id}"));
                 ct.CT.Send(new SendOrPostCallback(mainWindow.writeToInventoryProgress), string.Format("***********************************************"));
-                List<string> codes = ct.Moves.Select<InventoryMoves, string>((Func<InventoryMoves, string>)(y => y.CodArticulo)).ToList<string>();
-                ct.CT.Send(new SendOrPostCallback(mainWindow.writeToInventoryProgress), string.Format("Obteniendo Productos relacionados"));
-                List<Product> products = await QueryableExtensions.ToListAsync<Product>(((IQueryable<Product>)storeEntities.Products).Where<Product>((Expression<Func<Product, bool>>)(x => codes.Contains(x.Sku))));
+                List<string> codes = ct.Moves.Select(y => y.CodArticulo).ToList();
+                ct.CT.Send(new SendOrPostCallback(mainWindow.writeToInventoryProgress), string.Format($"Obteniendo Productos relacionados a {codes.Count} movimientos"));
+                List<Product> products = await storeEntities.Products.Where(x => codes.Contains(x.Sku)).ToListAsync();
                 ct.CT.Send(new SendOrPostCallback(mainWindow.writeToInventoryProgress), string.Format(string.Format("Movimientos {0} Productos", ct.Moves.Count)));
                 foreach (InventoryMoves move1 in ct.Moves)
                 {
                     InventoryMoves move = move1;
-                    Product prod = products.FirstOrDefault<Product>((Func<Product, bool>)(x => x.Sku == move.CodArticulo));
+                    Product prod = products.FirstOrDefault(x => x.Sku == move.CodArticulo);
                     await mainWindow.ProcessInventoryMove(move, prod, ct.CT, storeEntities);
                 }
                 ct.CT.Send(new SendOrPostCallback(mainWindow.writeToErrorLog), string.Format(string.Format("Se Procesaron {0} movimientos --- {1}", ct.Moves.Count, DateTime.Now)));
                 ct.CT.Send(new SendOrPostCallback(mainWindow.writeToInventoryProgress), "Inventario Sincronizada");
-                mainWindow.processingInventory = false;
-                storeEntities = (kams_nopcEntities)null;
-                products = (List<Product>)null;
-                ct = (ThreadContext)null;
+                storeEntities = null;
+                products = null;
+                ct = null;
             }
             catch (Exception ex)
             {
@@ -464,13 +481,17 @@ namespace Data_Sync
                 stringBuilder.AppendLine("");
                 if (ct.CT == null)
                 {
-                    ct = (ThreadContext)null;
+                    ct = null;
                 }
                 else
                 {
                     ct.CT.Send(new SendOrPostCallback(mainWindow.writeToErrorLog), ("Error en la sincronizacion: " + stringBuilder.ToString()));
-                    ct = (ThreadContext)null;
+                    ct = null;
                 }
+            }
+            finally {
+                mainWindow.processingInventory = false;
+                this.processingInventory = false;
             }
         }
 
@@ -487,14 +508,19 @@ namespace Data_Sync
                 if (prod == null)
                     return;
                 ct.Send(new SendOrPostCallback(mainWindow.writeToInventoryProgress), string.Format(string.Format("Procesando Producto {0} - Codigo {1} Cantidad {2}", prod.FullDescription, prod.Sku, move.Cantidad)));
-                prod.StockQuantity = Convert.ToInt32(move.Cantidad);
-                storeEntities.Entry<Product>(prod).State = (EntityState)16;
+                var result = storeEntities.Products.First(x => x.Sku == prod.Sku);
+                result.StockQuantity = Convert.ToInt32(move.Cantidad);
+                storeEntities.Entry<Product>(result).State = EntityState.Modified;
                 int num = await storeEntities.SaveChangesAsync();
                 ct.Send(new SendOrPostCallback(mainWindow.increaseInventoryProgressValues), 0);
             }
             catch (Exception ex)
             {
                 StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.AppendLine($"SKU: {prod.Sku}");
+                stringBuilder.AppendLine("");
+                stringBuilder.AppendLine($"Quantity: {prod.StockQuantity}");
+                stringBuilder.AppendLine("");
                 stringBuilder.AppendLine(ex.Message);
                 stringBuilder.AppendLine("");
                 stringBuilder.AppendLine(ex.StackTrace);

@@ -5,19 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KamsUserManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="360">
+        Title="Administrador de Tienda Web" Height="750" Width="860">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition x:Name="topInfo" Height="160"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Canvas Grid.Row="0" Margin="0,2,0,272" Grid.RowSpan="2">
-            <Label Name="lblEmail" Content="Email a Actualizar" Height="23" Width="303" Canvas.Left="9" Canvas.Top="90"></Label>
-            <TextBox x:Name="txtEmailToSearch" TextWrapping="Wrap" Width="309" Canvas.Left="11" Canvas.Top="113"/>
-            <Label Content="New Password" Canvas.Left="12" Canvas.Top="131"></Label>
-            <TextBox Name="txtPassword" Canvas.Left="12" Canvas.Top="157" Width="308"></TextBox>
-            <Button x:Name="btnSave" Content="Save" Click="btnSave_Click" Canvas.Left="291" Canvas.Top="193"></Button>
-        </Canvas>
-        <ProgressBar x:Name="prgLoading" IsIndeterminate="True" Visibility="Hidden" HorizontalAlignment="Left" Height="18" Margin="10,62,0,0" VerticalAlignment="Top" Width="312"/>
+        <TabControl>
+            <TabItem Name="tbiProducts" Header="Productos">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="60*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <Label Content="Buscar Productos" HorizontalAlignment="Left" Canvas.Left="10" VerticalAlignment="Center"></Label>
+                        <TextBox x:Name="txt_search" ToolTip="Nombe, SKU o descripcion del producto" 
+                                 Width="250" Canvas.Left="10" Canvas.Top="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+                        <Button x:Name="btn_search" Content="Buscar Productos" Canvas.Left="285" Canvas.Top="29" Click="btn_search_Click"></Button>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Button Content="Guardar Cambos" Canvas.Left="10" Canvas.Top="30" Name="btn_save" Click="btn_save_Click"></Button>
+                    </Canvas>
+                    <Canvas Grid.Row="2">
+                        <DataGrid MaxHeight="500" MaxWidth="835" x:Name="gdr_products" ItemsSource="{Binding Products, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" IsReadOnly="True" Binding="{Binding Id}" />
+                                <DataGridTextColumn Header="SKU" IsReadOnly="True" Binding="{Binding Sku}" />
+                                <DataGridCheckBoxColumn Header="Publicado?" IsReadOnly="False" Binding="{Binding Published}"/>
+                                <DataGridTextColumn Header="Nombre" IsReadOnly="True" Binding="{Binding Name}"/>
+                                <DataGridTextColumn Header="Descripcion" IsReadOnly="True" Binding="{Binding ShortDescription}" />
+                                <DataGridTextColumn Header="Ultima Modificacion" IsReadOnly="True" Binding="{Binding UpdatedOnUtc}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+            <TabItem Name="tbiUsers" Header="Usuarios" Visibility="Hidden">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Name="topInfo" Height="160"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0" Margin="0,2,0,272" Grid.RowSpan="2">
+                        <Label Name="lblEmail" Content="Email a Actualizar" Height="23" Width="303" Canvas.Left="9" Canvas.Top="90"></Label>
+                        <TextBox x:Name="txtEmailToSearch" TextWrapping="Wrap" Width="309" Canvas.Left="11" Canvas.Top="113"/>
+                        <Label Content="New Password" Canvas.Left="12" Canvas.Top="131"></Label>
+                        <TextBox Name="txtPassword" Canvas.Left="12" Canvas.Top="157" Width="308"></TextBox>
+                        <Button x:Name="btnSave" Content="Save" Click="btnSave_Click" Canvas.Left="291" Canvas.Top="193"></Button>
+                    </Canvas>
+                    <ProgressBar x:Name="prgLoading" IsIndeterminate="True" Visibility="Hidden" HorizontalAlignment="Left" Height="18" Margin="10,62,0,0" VerticalAlignment="Top" Width="312"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
 
     </Grid>
 </Window>

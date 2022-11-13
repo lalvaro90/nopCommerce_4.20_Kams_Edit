@@ -11,6 +11,7 @@ namespace Data_Sync.DTOs
 {
     public class PCGRAF_Product
     {
+        public string Cantidad { get; set; }
         public string SCodigo_Producto { get; set; }
 
         public string SDescripcion_Inventario { get; set; }
@@ -63,10 +64,16 @@ namespace Data_Sync.DTOs
 
         public override string ToString()
         {
-            string empty = string.Empty;
-            foreach (PropertyInfo property in typeof(Product).GetProperties())
-                empty += string.Format("{0} -> {1} ", (object)property.Name, property.GetValue((object)this));
-            return empty.Trim();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Codigo: {SCodigo_Producto}");
+            sb.AppendLine($"Precio 1: {P1}");
+            sb.AppendLine($"Precio 2: {P2}");
+            sb.AppendLine($"Precio 3: {P3}");
+            sb.AppendLine($"Precio 4: {P4}");
+            sb.AppendLine($"Descripcion: {SDescripcion_Inventario}");
+            sb.AppendLine($"Grupo: {SGrupo}");
+            sb.AppendLine($"Cantidad: {Cantidad}");
+            return sb.ToString();
         }
     }
 }

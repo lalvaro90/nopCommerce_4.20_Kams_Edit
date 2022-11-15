@@ -344,7 +344,7 @@ namespace Data_Sync
                             VisibleIndividually = true,
                             OrderMaximumQuantity = 999,
                             OrderMinimumQuantity = 1,
-                            Published = false
+                            Published = true
                         };
                         Product exist_prod = ((IQueryable<Product>)npcommerceEntities.Products).FirstOrDefault<Product>((Expression<Func<Product, bool>>)(x => x.MetaKeywords == p.SCodigo_Producto));
                         if (exist_prod != null)
